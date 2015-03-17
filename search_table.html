@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		
+		<style>
+			
+			label{
+			position:relative;
+			top:45px;
+			}
+			#searchBox{
+			font-family:Arial;
+			
+			}
+			
+			#searchImage{
+			height:15px;
+			width:15px;
+			}
+			
+			#players_table{
+			position:relative;
+			top:50px;
+			}
+			
+			table {
+			width:700px;;
+			border-collapse:collapse;			
+			}
+			
+			table th,td{
+			padding:5px;
+			cellspacing:50px;
+			border:1px solid black;
+			}
+			
+			th{
+			background: grey;
+			}		
+			
+			
+		</style>
+		
+	</head>
+	
+	<body>
+		<label>
+			<input id="searchBox" onkeyup="searchFilter()" type="text" placeholder="Search" />
+			<img id="searchImage" src="search_image.png" alt="search image" />
+		</label>
+		
+		<table id="players_table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Game</th>
+					<th>Rank</th>
+					<th>Origin</th>
+				</tr>
+			</thead>
+			
+			
+			<tbody>
+			</tbody>
+			
+		</table>
+		
+		<script type="text/javascript">			
+			var players=[
+				{name:'Abhi', game:'Cricket', rank:'1', origin:'Hyderabad'},
+				{name:'Kartik', game:'Hockey', rank:'2', origin:'Mumbai'},
+				{name:'Shreyas', game:'Cricket', rank:'3', origin:'Hyderabad'},
+				{name:'Ganesh', game:'Football', rank:'4', origin:'Bangalore'},
+				{name:'Bala', game:'Cricket', rank:'5', origin:'Chennai'},
+				{name:'Sharma', game:'Shooting', rank:'6', origin:'Delhi'},
+				{name:'Kaushik', game:'Tennis', rank:'7', origin:'Delhi'},
+				{name:'Srujan', game:'Football', rank:'8', origin:'Mumbai'},
+				{name:'Adil', game:'Shooting', rank:'9', origin:'Hyderabad'},
+				{name:'Gautham', game:'Hockey', rank:'10', origin:'Chennai'}
+				];
+				
+			var trs="<tr>";
+			for (var k=0; k<players.length; k++){
+				var tds="";
+				
+				for (var prop in players[k] ){ 	// to access all properties and its values from each (student.[i])
+					tds= tds+ "<td>"+players[k][prop]+"</td>";
+				}
+				trs=trs+tds+"</tr>";
+			}
+			players_table.children[1].innerHTML= trs; //pushes trs into <tbody> of table id #search_table.
+							
+			
+			// onkeyup event function for searching columns from table.
+			function searchFilter(){
+				var txt_val="";
+				txt_val= searchBox.value.toLowerCase();
+				var searchRows=players_table.children[1].children;
+				for(var i=0; i<searchRows.length; i++){ // row loop
+					var searchCols=searchRows[i].children;
+					
+					for(var j=0; j<searchCols.length;j++){ // column loop
+						var col_val= searchCols[j].innerHTML.toLowerCase();
+						
+						if(col_val.indexOf(txt_val)> -1) {
+							searchRows[i].style.display="table-row";
+							break;
+						}
+						else {
+							searchRows[i].style.display="none";
+						}
+					} // column loop end
+				} // row loop end	
+/* 				
+
+
+				searchNames();
+				searchGames();
+				searchRanks();
+				searchOrigins();
+*/			
+			}
+			
+			/*function searchNames( searchText ) {
+				players.forEach(row){ 
+					row.name.indexOf(searchText) != -1;
+					
+				}
+			}
+			
+			function searchRanks( searchText ){
+			}
+			
+			function searchGames( searchText ) {
+			}
+			
+			function searchOrigins( searchText ) {
+			} */
+		
+		</script>
+	
+	
+	</body>
+
+
+</html>
