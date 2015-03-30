@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+   <head>
+     <title> Web Demo</title>
+<style>
+.active{
+background:lime;
+color:white;
+
+}
+li{
+cursor:pointer;
+padding:10px;
+border-radius:5px;
+}
+</style>
+   </head>
+   <body>
+   
+   <ul>
+   
+      <li class="tabs active" onclick="callBehaviour(this)"> Home</li>
+      <li class="tabs" onclick="callBehaviour(this)"> Service</li>
+      <li class="tabs" onclick="callBehaviour(this)"> Project</li>
+      <li class="tabs" onclick="callBehaviour(this)"> contact</li>
+   </ul>
+   <script>
+   
+    function callBehaviour(el){
+	   var lis = document.getElementsByClassName('tabs');
+	   var listLength = lis.length;
+	   for(var i = 0;i < listLength; i++){
+	      lis[i].classList.remove('active');
+	   }
+	   el.classList.add('active');
+	}
+   
+   </script>
+   
+    
+   
+   </body>
+</html>
