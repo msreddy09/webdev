@@ -19,14 +19,30 @@ border-radius:5px;
    
    <ul>
    
-      <li class="tabs active" onclick="callBehaviour(this)"> Home</li>
-      <li class="tabs" onclick="callBehaviour(this)"> Service</li>
-      <li class="tabs" onclick="callBehaviour(this)"> Project</li>
-      <li class="tabs" onclick="callBehaviour(this)"> contact</li>
+      <li class="tabs active" onclick="callBehaviour(event)"> Home</li>
+      <li class="tabs" onclick="callBehaviour(event)"> Service</li>
+      <li class="tabs" onclick="callBehaviour(event)"> Project</li>
+      <li class="tabs" onclick="callBehaviour(event)"> contact</li>
    </ul>
-   <script>
    
-    function callBehaviour(el){
+   <button id="addBtn">Add an element once only </button>
+   <script>
+   function addNewElement(){
+     var newLi = document.createElement('li');
+	 newLi.innerText = " Web pages ";	 
+	 newLi.className = "tabs";
+	 newLi.addEventListener("click",callBehaviour);
+	 var ul = document.querySelector('ul');
+	 ul.appendChild(newLi);
+     addBtn.removeEventListener('click', addNewElement ,true);
+	 
+   }
+   addBtn.addEventListener('click',addNewElement,true);
+   
+   
+   
+   function callBehaviour(e){
+	   var el = e.srcElement;
 	   var lis = document.getElementsByClassName('tabs');
 	   var listLength = lis.length;
 	   for(var i = 0;i < listLength; i++){
