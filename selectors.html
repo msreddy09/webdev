@@ -29,7 +29,12 @@ border-radius:5px;
    <script>
    function addNewElement(){
      var newLi = document.createElement('li');
-	 newLi.innerText = " Web pages ";	 
+	 //textContent	 for Mozill
+	 if(newLi.innerText){
+	   newLi.innerText = " Web pages ";
+	 }else{
+	    newLi.textContent = " Web pages ";
+	 }
 	 newLi.className = "tabs";
 	 newLi.addEventListener("click",callBehaviour);
 	 var ul = document.querySelector('ul');
