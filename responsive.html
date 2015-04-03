@@ -74,8 +74,47 @@
 		.thumbnail p, .header p {font-size: 18px;}
 		
 	  }
+	  #modal{
+	    position:absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left : 0;
+		z-index : 99999;
+		background: rgba(0,0,0,0.5);
+		display :none;
+	  }
 	  
-	  
+	  .modal-popup{
+	    width:70%;
+		height: 80%;
+		position:relative;
+		left: 15%;
+		top: 10%;
+		background: #fff;
+		border:2px solid #000;
+	  }
+	  #close_popup{
+		  cursor: pointer;
+		  color: white;
+		  position: absolute;
+		  right: -4px;
+		  top: -10px;
+	  }
+	  #next{
+	      cursor: pointer;
+		  color: red;
+		  position: absolute;
+		  right: 10px;
+		  top: 50%;
+	  }
+	  #prev{
+	      cursor: pointer;
+		  color: red;
+		  position: absolute;
+		  left: 10px;
+		  top: 50%;
+	  }
 	 </style>
 	
    </head>
@@ -83,74 +122,93 @@
        <div class="header">
 	      <h1> Responsive Demo</h1>
 	   </div>
-	   <div class="content">
-	      <div class="thumbnail">
-		      <img src="" />
-			  <h1> Image Heading</h1>
-			  <p> Image description goes here </p>		  
-		  </div>
-		  <div class="thumbnail">
-		      <img src="" />
-			  <h1> Image Heading</h1>
-			  <p> Image description goes here </p>		  
-		  </div> 
-		  <div class="thumbnail">
-		      <img src="" />
-			  <h1> Image Heading</h1>
-			  <p> Image description goes here </p>		  
-		  </div> 
-		  <div class="thumbnail">
-		      <img src="" />
-			  <h1> Image Heading</h1>
-			  <p> Image description goes here </p>		  
-		  </div> 
-		  <div class="thumbnail">
-		      <img src="" />
-			  <h1> Image Heading</h1>
-			  <p> Image description goes here </p>		  
-		  </div>
-		   <div class="thumbnail">
-		      <img src="" />
-			  <h1> Image Heading</h1>
-			  <p> Image description goes here </p>		  
-		  </div> 
-		  <div class="thumbnail">
-		      <img src="" />
-			  <h1> Image Heading</h1>
-			  <p> Image description goes here </p>		  
-		  </div>
-		   <div class="thumbnail">
-		      <img src="" />
-			  <h1> Image Heading</h1>
-			  <p> Image description goes here </p>		  
-		  </div> 
-		  <div class="thumbnail">
-		      <img src="" />
-			  <h1> Image Heading</h1>
-			  <p> Image description goes here </p>		  
-		  </div>
-		   <div class="thumbnail">
-		      <img src="" />
-			  <h1> Image Heading</h1>
-			  <p> Image description goes here </p>		  
-		  </div> 
-		  <div class="thumbnail">
-		      <img src="" />
-			  <h1> Image Heading</h1>
-			  <p> Image description goes here </p>		  
-		  </div>
-		   <div class="thumbnail">
-		      <img src="" />
-			  <h1> Image Heading</h1>
-			  <p> Image description goes here </p>		  
-		  </div> 
-		  <div class="thumbnail">
-		      <img src="" />
-			  <h1> Image Heading</h1>
-			  <p> Image description goes here </p>		  
-		  </div>
-		  
+	   <div class="content" id="mainContent"></div>
+	   
+	   <div id="modal">
+	      
+		    <div class="modal-popup" id="popup_container">
+			  <span id="close_popup"> X</span>
+			  <span id="prev"> &lt;&lt;Prev </span>
+			  <span id="next"> Next&gt;&gt; </span>
+			  
+			</div>
+	   
+	   
 	   </div>
+	   
+	   
+	   <script>
+	   
+	      var imagesArray = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg"],currentImg;
+	      var imagesLength = imagesArray.length;
+		  for(var i = 0; i < imagesLength ; i++){
+		    var divElement = document.createElement("div"),
+			imgElement = document.createElement('img'), 
+			h1Element = document.createElement('h1'), 
+			pElement = document.createElement('p');
+			divElement.className = "thumbnail";
+			imgElement.src = imagesArray[i];
+			h1Element.appendChild(document.createTextNode(" Image Heading "));
+			pElement.appendChild(document.createTextNode("Image description goes here "));
+			divElement.appendChild(imgElement);		
+			mainContent.appendChild(divElement);
+			divElement.appendChild(h1Element);
+			divElement.appendChild(pElement);	
+		  }
+		  
+		  var thumbnails = document.getElementsByClassName('thumbnail');
+		  for( var i = 0; i < thumbnails.length ; i++){
+		     thumbnails[i].addEventListener("click",imgPreview);
+		  }
+		  
+		  function imgPreview(){
+		    var clickedImg = this.children[0].getAttribute("src");
+			if( popup_container.children[3] && popup_container.children[3].nodeName == "IMG"){
+			    popup_container.children[3].setAttribute("src", clickedImg);
+			}else{
+			    var popImg = document.createElement('img');
+				popImg.setAttribute("src", clickedImg);
+				popImg.setAttribute("height","100%");
+				popImg.setAttribute("width","100%");
+				popup_container.appendChild(popImg);
+			}
+				
+			modal.style.display = "block";
+			 for(var i = 0; i < imagesLength ; i++){
+			     if(clickedImg ==imagesArray[i]){
+				   currentImg = i;
+				 }
+			 }
+			
+		  }
+	   
+	      close_popup.onclick = function(){
+		     modal.style.display = "none";
+		  }
+		  
+		  next.onclick =function (){
+		    currentImg++;
+			if(currentImg < imagesArray.length){
+			  popup_container.children[3].setAttribute("src",imagesArray[currentImg]);
+			}
+			else if(currentImg == imagesArray.length){
+			  currentImg=0;
+			  popup_container.children[3].setAttribute("src",imagesArray[currentImg])
+			}
+		  }
+		  
+		  prev.onclick = function(){
+		     currentImg--;
+			if(currentImg >= 0){
+			  popup_container.children[3].setAttribute("src",imagesArray[currentImg]);
+			}
+			else if(currentImg < 0){
+			  currentImg= imagesArray.length-1;
+			  popup_container.children[3].setAttribute("src",imagesArray[currentImg])
+			}
+		  
+		  }
+	   </script>
 	   
 	 
    </body>
