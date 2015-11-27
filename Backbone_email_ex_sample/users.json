@@ -1,0 +1,9 @@
+{
+  "users" :[
+    {"name":"Sudhakar","password":"hiddden123","age":"26","gender":"M"},
+    {"name":"Karthik","password":"hiddden123","age":"22","gender":"M"},
+    {"name":"Ram","password":"hiddden123","age":"23","gender":"M"},
+    {"name":"Siva","password":"hiddden123","age":"25","gender":"M"}
+    
+  ]
+}

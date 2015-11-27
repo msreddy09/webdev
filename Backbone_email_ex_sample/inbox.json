@@ -1,0 +1,37 @@
+{
+   "inboxitems":[
+     {
+       "id":1,
+       "img":"",
+       "subj": "Get work Done!",
+       "body": " You have complete task by next Monday at any cost.",
+       "bodyDetail":" Do you want to work at an exciting new startup delivering unprecedented business value by mining information to dramatically increase the product margins for product manufacturers? If so, we at Glassbeam are very interested in hearing from you. Our founders have developed an innovative approach to mining product information and extracting customer intelligence. We were founded in 2009, but went through a \"re-birth\" of sorts in 2012 - check out these press releases about our growth! http://www.glassbeam.com/about-us/press-releases The Glassbeam workplace motivates the entrepreneurial spirit and creativity of its people. We're looking for folks who love the challenge of building a Software-as-a-Service product through a sharing of ideas, and who have a passion to exceed customer expectations. We offer a competitive salary, great benefits, and a fun and flexible work environment",
+       "isRead": false
+     },
+     { 
+       "id":2,
+       "img":"",
+       "subj": "GooD work!",
+       "body": " You have complete task by next Monday at any cost.",
+       "bodyDetail":" Do you want to work at an exciting new startup delivering unprecedented business value by mining information to dramatically increase the product margins for product manufacturers? If so, we at Glassbeam are very interested in hearing from you. Our founders have developed an innovative approach to mining product information and extracting customer intelligence. We were founded in 2009, but went through a \"re-birth\" of sorts in 2012 - check out these press releases about our growth! http://www.glassbeam.com/about-us/press-releases The Glassbeam workplace motivates the entrepreneurial spirit and creativity of its people. We're looking for folks who love the challenge of building a Software-as-a-Service product through a sharing of ideas, and who have a passion to exceed customer expectations. We offer a competitive salary, great benefits, and a fun and flexible work environment",
+       "isRead": false
+       
+     },
+     {
+       "id":3,
+       "img":"",
+       "subj": "Please confirm!",
+       "body": " You have complete task by next Monday at any cost.",
+       "bodyDetail":" Do you want to work at an exciting new startup delivering unprecedented business value by mining information to dramatically increase the product margins for product manufacturers? If so, we at Glassbeam are very interested in hearing from you. Our founders have developed an innovative approach to mining product information and extracting customer intelligence. We were founded in 2009, but went through a \"re-birth\" of sorts in 2012 - check out these press releases about our growth! http://www.glassbeam.com/about-us/press-releases The Glassbeam workplace motivates the entrepreneurial spirit and creativity of its people. We're looking for folks who love the challenge of building a Software-as-a-Service product through a sharing of ideas, and who have a passion to exceed customer expectations. We offer a competitive salary, great benefits, and a fun and flexible work environment",
+       "isRead": true
+     },
+     {
+       "id":4,
+       "img":"",
+       "subj": "Get Updates from User",
+       "body": " You have complete task by next Monday at any cost.",
+       "bodyDetail":" Do you want to work at an exciting new startup delivering unprecedented business value by mining information to dramatically increase the product margins for product manufacturers? If so, we at Glassbeam are very interested in hearing from you. Our founders have developed an innovative approach to mining product information and extracting customer intelligence. We were founded in 2009, but went through a \"re-birth\" of sorts in 2012 - check out these press releases about our growth! http://www.glassbeam.com/about-us/press-releases The Glassbeam workplace motivates the entrepreneurial spirit and creativity of its people. We're looking for folks who love the challenge of building a Software-as-a-Service product through a sharing of ideas, and who have a passion to exceed customer expectations. We offer a competitive salary, great benefits, and a fun and flexible work environment",
+       "isRead": true
+     }
+    ]
+}

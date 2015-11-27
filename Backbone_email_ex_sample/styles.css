@@ -1,0 +1,28 @@
+#greeting {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  margin: 15px;
+}
+
+#usernamedisplay{
+  display:none;
+}
+.media.newmail{
+  font-weight:bold !important;
+}
+.media.readdone{
+  font-weight:normal !important;
+}
+.media{
+  padding: 5px;
+  border-bottom:1px solid #ccc;
+  margin-top:0 !important;
+}
+.media:hover{
+  background: #ccc;
+  cursor:pointer;
+}
+.media:last-child{
+  border-bottom:none !important;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>File reading</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+ <p> Reading image file. Please browse .jpeg(jpg) Image and Click button "Read Data". (Support single select)</p>
+ <input id="f1" multiple type="file"/> <button onclick="readDataFromFile()"> Read Data </button>
+ 
+ <div id="display">
+   
+ </div>
+ 
+ <script>
+ 
+ function readDataFromFile(){
+   var fr = new FileReader();
+   var file = f1.files[0];
+   if(file.type != "image/jpeg"){
+      alert("pleas upload correct image");
+   }else{
+   
+   fr.onload = function(){
+     console.log(event);
+     var img = new Image();
+     img.src = event.srcElement.result;
+     img.setAttribute("width","100");
+     img.setAttribute("height","100");
+     display.appendChild(img);
+   }
+   
+   fr.readAsDataURL(file);
+   }
+   
+ }
+   
+ </script>
+ 
+</body>
+</html>
+
+

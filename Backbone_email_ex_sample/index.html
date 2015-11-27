@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>demo1</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+
+<body>
+  <header id="header"></header>
+  <div id="container"></div>
+  <footer></footer>
+
+
+ <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+ <script src="http://underscorejs.org/underscore.js"></script>
+ <script src="http://backbonejs.org/backbone.js"></script>
+ <script src="main.js"></script>
+ 
+ <script type="text/template" id="appheader-tpl">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <h2 class="navbar-text ">Application Name</h2>
+        
+        </div>
+        <div class="navbar-header navbar-right">
+          <h4 class="navbar-text" id="usernamedisplay">
+            Welcome : <span id="loggedinuser"></span>
+          </h4>
+        
+        </div>
+      </div>
+      </nav>
+   
+ </script>
+ 
+ 
+<script type="text/template" id="login-tpl">
+<div class="panel panel-default">
+ <div class="panel-heading">Login Here</div>
+  <div class="panel-body">
+     <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd">
+  </div>
+  
+  <button type="submit" id="loginbtn" class="btn btn-default">Submit</button>
+  </div>
+</div>
+    
+   
+ </script>
+ 
+ 
+ <script type="text/template" id="ibtpl">
+  <div class="bs-example" data-example-id="default-media">
+    <% _.each(data, function(email) { %>
+    <% if(email.isRead) { %> 
+      <div class="media readdone">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE0LjUiIHk9IjMyIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="width: 64px; height: 64px;">
+          </a>
+        </div>
+        <div class="media-body" >
+          <h4 class="media-heading subjtext"><%= email.subj%><a class="anchorjs-link" href="#media-heading"><span class="anchorjs-icon"></span></a></h4>
+          <%=email.body%>
+         </div>
+      </div>
+     <% }else{ %>
+          <div class="media newmail">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE0LjUiIHk9IjMyIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="width: 64px; height: 64px;">
+          </a>
+        </div>
+        <div class="media-body" >
+          <h4 class="media-heading subjtext"><%= email.subj%><a class="anchorjs-link" href="#media-heading"><span class="anchorjs-icon"></span></a></h4>
+          <%=email.body%>
+         </div>
+      </div>
+     <%}%>
+    <% });%>
+    
+  </div>
+   
+ </script>
+ 
+ <script type="text/template" id="detailtpl">
+    
+<div class="panel panel-default">
+ <div class="panel-heading"><%= detalis.subj%>  <button style="float:right;margin-top: -7px;" class="btn backbutton">Back</button></div>
+  <div class="panel-body">
+      <p>Hello <%=detalis.name%> ,</p>
+      <div>
+         <%= detalis.bodyDetail%>
+      </div>
+  </div>
+</div>
+    
+   
+   
+ </script>
+ 
+ 
+ 
+ 
+ 
+ 
+</body>
+</html>
