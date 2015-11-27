@@ -1,0 +1,128 @@
+<html>
+
+<head>
+
+<style>
+
+  .slider{
+   height: 250px;
+   position:relative;
+   left: 0;
+   transition: all .5s ease-in;
+  }
+  .slider img{margin:0;float:left;}
+  .gallary-container{     
+     height: 250px;
+     overflow: hidden;
+     margin: auto;
+  }
+  .outerdiv{
+    width: 500px;
+	margin:auto;
+	line-height: 
+  }
+  
+</style>
+</head>
+<body>
+
+<div class="outerdiv">
+   <button id="prevbtn">Prev</button>
+   <div  class="gallary-container">
+   <div class="slider">
+      <img src="1.jpg" width="500" height="250"/>
+      <img src="2.jpg" width="500" height="250"/>
+      <img src="3.jpg" width="500" height="250"/>
+      <img src="4.jpg" width="500" height="250"/>
+      <img src="5.jpg" width="500" height="250"/>
+   </div>
+   </div>
+   <button id="nextbtn"> Next </button>
+</div>
+
+<div class="outerdiv" style="display:none" >
+   <button id="prevbtn">Prev</button>
+   <div  class="gallary-container">
+   <div class="slider">
+      <img src="1.jpg" width="500" height="250"/>
+      <img src="2.jpg" width="500" height="250"/>
+      <img src="3.jpg" width="500" height="250"/>
+      <img src="4.jpg" width="500" height="250"/>
+      <img src="5.jpg" width="500" height="250"/>
+   </div>
+   </div>
+   <button id="nextbtn"> Next </button>
+</div>
+
+
+<script>
+  var leftpos = 0;
+  if( leftpos == 0){
+	prevbtn.disabled = true;
+  }
+  var galContainerEl = document.querySelector(".gallary-container");
+  var imgWidth = parseInt(document.querySelector(".slider").children[0].getAttribute('width'));
+  var sliderEl = document.querySelector(".slider");
+  sliderEl.style.width = imgWidth * sliderEl.childElementCount + "px";
+  galContainerEl.style.width = imgWidth + "px";
+  nextbtn.onclick = function(){
+     clearInterval(timeout);
+     nextImage();
+  }
+  function nextImage(){
+    nextbtn.disabled = false;
+    prevbtn.disabled = false;
+    leftpos = leftpos - imgWidth;
+	sliderEl.style.left = leftpos + "px";
+    if( leftpos == - (imgWidth * sliderEl.childElementCount - imgWidth)){
+	  nextbtn.disabled = true;
+	}
+ }
+ prevbtn.onclick = function(){
+    clearInterval(timeout);
+    prevImage();
+  
+ }
+ function prevImage(){
+   nextbtn.disabled = false;
+     leftpos = leftpos + imgWidth;
+	 var sliderEl = document.querySelector(".slider");
+     sliderEl.style.left = leftpos + "px";
+     if( leftpos == 0){
+	    prevbtn.disabled = true;
+	 }
+ }
+ 
+
+var direction = "left";
+var timeout = setInterval(function(){
+   if(direction == "left"){
+      nextImage();
+   }
+   if( leftpos == - (imgWidth * sliderEl.childElementCount)){
+	  direction = "right";
+      }
+   if( direction == "right"){
+       prevImage();
+   }
+   if( leftpos == 0){
+	  direction = "left";
+   }
+   
+    
+},2000);
+ 
+
+
+
+
+</script>
+
+
+ 
+ 
+
+
+</body>
+
+</html>

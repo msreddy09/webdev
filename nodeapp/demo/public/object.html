@@ -1,0 +1,119 @@
+<html>
+
+<head>
+
+<style>
+
+ table{
+  border:1px solid;
+  border-collapse: collapse;
+ }
+  table td,th{
+  border:1px solid;
+  text-align: center;
+   
+ }
+</style>
+
+</head>
+<body>
+
+ <input type="text" id="searchTxt" /><button id="searchbtn"> Search</button>
+
+  <table width="100%">
+    <thead> 
+	   <tr>
+	      <th> Name </th>
+	      <th> EMP ID </th>
+	      <th> AGE </th>
+	   </tr>
+	</thead>
+	<tbody id="tableData">
+	  
+	    
+	</tbody>
+  </table>
+
+ <script>
+ 
+ 
+   searchTxt.onkeyup = function(){
+   
+     var txt = document.getElementById("searchTxt").value.toLowerCase();
+	 var trs = tableData.children;
+	 for( var i =0 ;i < trs.length ; i++){
+	    if(tableData.children[i].textContent.toLowerCase().indexOf(txt) == -1){
+		   trs[i].style.display = "none";
+		}else{
+		   trs[i].style.display = "table-row";
+		}
+	 }
+   }
+ 
+    
+ 
+   var emp = [{
+      empName : "Sudhakar",
+	  empID : "EMP001",
+	  age : 27  },{
+      empName : "Ramesh",
+	  empID : "EMP002",
+	  age : 26 },{
+      empName : "Sudhakar",
+	  empID : "EMP001",
+	  age : 27  },{
+      empName : "Ramesh",
+	  empID : "EMP002",
+	  age : 26 },{
+      empName : "Sudhakar",
+	  empID : "EMP001",
+	  age : 27  },{
+      empName : "Ramesh",
+	  empID : "EMP002",
+	  age : 26 },{
+      empName : "Ramesh",
+	  empID : "EMP002",
+	  age : 26 },{
+      empName : "Ramesh",
+	  empID : "EMP002",
+	  age : 26 },{
+      empName : "Ramesh",
+	  empID : "EMP002",
+	  age : 26 },{
+      empName : "Ramesh",
+	  empID : "EMP002",
+	  age : 26 },{
+      empName : "Ramesh",
+	  empID : "EMP002",
+	  age : 26 },{
+      empName : "Ramesh",
+	  empID : "EMP002",
+	  age : 26 },{
+      empName : "Ramesh",
+	  empID : "EMP002",
+	  age : 26 },{
+      empName : "Ramesh",
+	  empID : "EMP002",
+	  age : 26 }];
+	  
+   for( var i = 0 ;i < emp.length ;i++){
+     var tr = document.createElement("tr");
+	 for( var key in emp[i]){
+	   var td = document.createElement("td");
+	   var txtNode = document.createTextNode(emp[i][key]);
+	   td.appendChild(txtNode);
+	   tr.appendChild(td);
+	 }
+	 var tbody = document.querySelector("#tableData");
+	 tbody.appendChild(tr);
+   
+   }
+	  
+	
+ 
+ </script>
+
+
+</body>
+
+</html>
