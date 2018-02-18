@@ -1,0 +1,177 @@
+body {
+  background: #e6ecf0;
+  padding: 0;
+  margin: 0;
+  font-family: "Segoe UI",Arial,sans-serif;
+  min-width: 320px;
+}
+.twitter-page-header{
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    padding: 5px 10px;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    background: #FFF;
+    overflow: hidden;
+
+    .twitter-app-name{
+       font-size: 24px;
+    }
+    .twitter-navbar-menu{
+        display: inline-block;
+	    margin: 0;
+	    list-style: none;
+	    width: 70%;
+	    float: right;
+	    overflow: hidden;
+	    margin-top: 5px;
+	    li {
+	      float: left;
+	      padding: 0 10px 
+	    }
+    }
+}
+i.retweet-btn[isrt='true']{
+	color: green;
+}
+i.fav-btn[isfv='true']{
+	color: #e0245e;
+}
+i.retweet-btn, i.fav-btn {
+	cursor: pointer;
+}
+.twitter-main{
+   width: 50%;
+   margin: auto;
+   min-width: 320px;
+   margin-top: 10px;
+}
+
+.twitter-button--primary{
+	background-color: #4AB3F4;
+    border-color: transparent;
+    border: 1px solid #1da1f2;
+    color: #fff;
+}
+
+
+.twitter-tweetbox-container{
+	width: 100%;
+  margin: auto;
+  background: #E8F5FD;
+  padding: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-bottom: 1px solid #CCC;
+
+	.twitter-textbox{
+		border: 0;
+	    border-radius: 0;
+	    box-shadow: none;
+	    font-size: 14px;
+	    padding: 8px;
+	    background: #fff;
+	    border: 1px solid #e6ecf0;
+	    border-radius: 8px;
+	    line-height: 20px;
+        height: auto;
+        max-height: 75px;
+        oveflow: auto;
+	    &:focus{
+	    }
+
+    }
+    .twitter-tweet-button{
+        float: right;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-top: 5px;
+        &:disabled{
+          opacity: 0.5;
+	    }
+    }
+}
+
+.twitter-timeline-container{
+    .twitter-user-tweets--heading{
+      font-size: 13px;
+      background: #FFF;
+      border-bottom: 2px solid #ccc;
+      padding: 15px 2px;
+      display: flex;
+      span{
+        flex: 1;
+        text-align: center;
+      }
+      span.twitter-nav-link{
+        color: #1DA1F2;
+        cursor: pointer;
+        font-weight: bold;
+      }
+    }
+	.twitter-tweet-single{
+	   padding: 10px 5px;
+	   border-bottom: 1px solid #ccc;
+	   background: #FFF;
+	   overflow: hidden;
+	   .twitter-tweet-profile-img{
+       float: left;
+       img{
+         border-radius: 48px;
+       }
+	   } 
+	   .twitter-tweet-data{
+	     float: left;
+	     width: 88%;
+	     margin-left: 1%;
+	   }
+
+	   .twitter-tweet-owner{
+         padding-bottome: 8px;
+	   }
+
+	   .tiwtter-tweet-body-content{
+	     padding-bottom: 10px;
+	   }
+	   
+
+	   .twitter-tweet-actions-container {
+	       oveflow: auto;
+	       .tiwtter-tweet-timestamp{
+		     font-size: 12px;
+		     opacity: .5;
+		   }
+		   .twitter-tweet-action--buttons{
+		     float: right;
+		     width: 50%;
+		     i.fa {
+		        margin: 2px;
+            width: 60px;
+            font-size: 14px;
+		     }
+		   }
+	   }	   
+	}
+}
+
+.twitter-tweet-username{
+}
+.twitter-tweet-screenname{
+	opacity: 0.8;
+}
+.twitter-you-retweet-status{
+	opacity: 0.8;
+	font-size: 12px;
+}
+@media only screen and (device-width: 768px),
+       only screen and (max-width: 768px) {
+  .twitter-tweet-profile-img{
+    img{
+     width: 32px;
+     border-radius: 32px;
+    }
+  }
+  .twitter-main{
+    width: 90%;
+  }
+}

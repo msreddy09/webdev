@@ -1,0 +1,36 @@
+{
+  "name": "TheMTweet",
+  "version": "1.0.0",
+  "description": "twitterdemo",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server/index.js",
+    "webpack": "./node_modules/.bin/webpack -w"
+  },
+  "author": "The M",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "passport-twitter": "^1.0.4",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-html-parser": "^2.0.2",
+    "react-twitter-auth": "^0.0.10",
+    "twit": "^2.2.9",
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.9",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.1",
+    "webpack": "^3.11.0"
+  }
+}
