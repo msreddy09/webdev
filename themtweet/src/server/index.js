@@ -3,7 +3,7 @@ const app = express();
 const Twitter = require('twitter');
 const bodyParser = require('body-parser');
 const router = express.Router();
-const twitterAPI = require('node-twitter-api');
+//const twitterAPI = require('node-twitter-api');
 let params = { screen_name: 'nodejs' };
 let client;
 let twitter;
@@ -23,11 +23,11 @@ app.use(function(req, res, next) {
   next();
 });
 
-twitter = new twitterAPI({
+/*twitter = new twitterAPI({
   consumerKey: process.env.consumer_key,
   consumerSecret: process.env.consumer_secret,
   callback: 'http://127.0.0.1:3000/'
-});
+});*/
 
 
 
@@ -53,9 +53,6 @@ twitter = new twitterAPI({
   }
 })
 */
-
-
-
 
 router.get('/', function(req, res) {
 	/*console.log('----')
