@@ -28,9 +28,10 @@
 - Run command  `npm install` for installing all dependency node modules.
 - Configure `.env` file to access the twitter API, Port number and etc.
   You have to configure twitter auth keys in this file to acces api
+   - click [Create application](https://apps.twitter.com/app/new)  to get access keys for twitter api
 - Run command  `npm webpak` or `yarn webpack` to bundling the UI code.
 - Run command  `npm start` or `yarn start` to run the application.
->Now application will be running on `http://localhost:3000/` 
+> Now application will be running on `http://localhost:3000/` 
 
 
 
