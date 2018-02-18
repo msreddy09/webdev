@@ -53,14 +53,16 @@ class TweetBox extends React.Component {
        
       //to avoid retweeted tweets display
       let uniqueMessages = messages.filter((msg) =>{
-	    return msg.retweeted_status ? false : true;
-	  });
-      that.setState({
-      	messages:uniqueMessages, 
-      	tweets_count:uniqueMessages[0].user.statuses_count,
-      	friends_count: uniqueMessages[0].user.friends_count,
-      	followers_count: uniqueMessages[0].user.followers_count
-      });
+	      return msg.retweeted_status ? false : true;
+	    });
+	    if(uniqueMessages.length !== 0) {
+	      that.setState({
+	      	messages:uniqueMessages, 
+	      	tweets_count:uniqueMessages[0].user.statuses_count,
+	      	friends_count: uniqueMessages[0].user.friends_count,
+	      	followers_count: uniqueMessages[0].user.followers_count
+	      });
+	    }
     })
   }
 
@@ -70,12 +72,13 @@ class TweetBox extends React.Component {
   	let that = this;
   	axios.get(favListAPI).then(result => {   
       let uniqueMessages = result.data.message;       
-      
-      that.setState({
-      	messages:uniqueMessages, 
-      	favcount:uniqueMessages.length
+      if(uniqueMessages.length !== 0) {
+	      that.setState({
+	      	messages:uniqueMessages, 
+	      	favcount:uniqueMessages.length
 
-      });
+	      });
+      }
     })
   }
 
@@ -88,6 +91,10 @@ class TweetBox extends React.Component {
   }
 
   componentDidMount(){
+  	/*axios.get('/api/').then(result => {
+      console.log(result.message);
+      //location.href = "https://twitter.com/oauth/authenticate?oauth_token="+result.data.message;
+  	});*/
   	this.getTimeLine()
   	//this.getFavourites();
   }
