@@ -33,9 +33,9 @@ Run command  `npm start` or `yarn start` to run the application.
 Now application will be running on `http://localhost:3000/` 
 
 
-######Note:
+###### Note:
 
-Tried to authenticate tokens against `consumer_key` and `consumer_secret` keys using [`node-twitter-api`](https://github.com/reneraab/node-twitter-api) module. Unfortunatley I got the issue like "Faileed to redirect to https://twitter.com/oauth/authenticate?oauth_token=[requestToken] due to CORS issue in Chrome browser"
+Tried to authenticate tokens against `consumer_key` and `consumer_secret` keys using [`node-twitter-api`](https://github.com/reneraab/node-twitter-api) module. Unfortunatley I got the issue like "Failed to redirect to https://twitter.com/oauth/authenticate?oauth_token=[requestToken] due to CORS issue in Chrome browser"
 
 Anyhow I tried to redirect the page from the front-end code. I am able to manage get tweets but somehow I failed to work with continuously due to authentication issues as below.
 
@@ -46,10 +46,10 @@ Anyhow I tried to redirect the page from the front-end code. I am able to manage
     message: 'Your credentials do not allow access to this resource.' } ]
 
 ```
-####TODO
+###### TODO
 
 - Need to some code cleanup
-- Needs to show error messages on UI screens regarding  API service errors
+- Needs to show error messages on UI screens regarding  API service errors 
 
 
 
