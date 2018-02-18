@@ -18,7 +18,8 @@
 - Used React as front-end framework
 - Used node and express framework to build REST API
 - Used twitter npm module for access twitter API
-- Webpack for bundling
+- Used Webpack for bundling
+- Used ES6 Syntax
 - scss files for styling
 
 ## usage
